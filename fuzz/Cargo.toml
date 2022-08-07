@@ -1,0 +1,29 @@
+[package]
+name = "audrey-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.audrey]
+path = ".."
+default-features = false
+features = ["flac", "ogg_vorbis", "wav"]
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "reader"
+path = "fuzz_targets/reader.rs"
+test = false
+doc = false

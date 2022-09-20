@@ -1,0 +1,7 @@
+project: audrey
+target: reader
+
+cmds:
+  - cmd: /reader
+  - cmd: /reader_no_inst @@
+    libfuzzer: false

@@ -1,0 +1,8 @@
+project: audrey
+target: reader
+cmds:
+  - cmd: /mayhem/reader
+    libfuzzer: true
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/reader/testsuite
